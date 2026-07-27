@@ -1,5 +1,8 @@
+mod transferpacket;
+
 use crate::{Deserialize, Serialize, SerializeTest};
 use alloc::vec::Vec;
+use transferpacket::TransferPacket;
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Default, Serialize, Deserialize, SerializeTest)]
 pub enum SpiMode {
@@ -38,15 +41,6 @@ pub enum ProtocolError {
     /// Internal packet formatting error
     #[error("Packet contents malformed")]
     MalformedPacket,
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct TransferPacket {
-    /// Data to be sent over the wire
-    pub data: Vec<u8>,
-
-    /// Device number for chip select
-    pub device: u8,
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Serialize, Deserialize, SerializeTest)]

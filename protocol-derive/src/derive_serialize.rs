@@ -54,7 +54,7 @@ pub fn derive_serialize(input: TokenStream) -> TokenStream {
 
         quote! {
             Self::#ident => {
-                let mut bytes = Vec::with_capacity(#width);
+                let mut bytes = alloc::vec::Vec::with_capacity(#width);
                 let mut value = #value;
 
                 for _ in 0..#width {
