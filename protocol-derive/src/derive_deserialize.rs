@@ -53,7 +53,7 @@ pub fn derive_deserialize(input: TokenStream) -> TokenStream {
 
     TokenStream::from(quote! {
         impl Deserialize for #enum_name {
-            fn deserialize(data: SerializedData) -> Option<Self> {
+            fn deserialize(data: crate::SerializedData) -> Option<Self> {
                 if data.len() != #width {
                     return None;
                 }

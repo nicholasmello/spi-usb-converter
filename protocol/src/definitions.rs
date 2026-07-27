@@ -49,7 +49,7 @@ pub struct TransferPacket {
     pub device: u8,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq, Serialize, Deserialize, SerializeTest)]
 pub enum AckType {
     SetMode,
     SetFrequency,

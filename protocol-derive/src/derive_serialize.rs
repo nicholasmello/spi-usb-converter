@@ -68,9 +68,8 @@ pub fn derive_serialize(input: TokenStream) -> TokenStream {
     });
 
     TokenStream::from(quote! {
-        use crate::SerializedData;
         impl Serialize for #enum_name {
-            fn serialize(&self) -> SerializedData {
+            fn serialize(&self) -> crate::SerializedData {
                 match self {
                     #(#arms),*
                 }
