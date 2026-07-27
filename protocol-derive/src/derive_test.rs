@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{Data, DeriveInput, parse_macro_input};
+use syn::{Data, DeriveInput, Fields, parse_macro_input};
 
 pub fn derive_test(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as DeriveInput);
@@ -28,6 +28,21 @@ pub fn derive_test(input: TokenStream) -> TokenStream {
     };
 
     let variants = data.variants.iter().map(|variant| {
+        // Skip variants with #[skip]
+        let skipped = variant
+            .attrs
+            .iter()
+            .any(|attr| attr.path().is_ident("skip_test"));
+
+        if skipped {
+            return quote! {};
+        }
+
+        if !matches!(variant.fields, Fields::Unit) {
+            return syn::Error::new_spanned(variant, "SerializeTest only supports unit variants")
+                .to_compile_error();
+        }
+
         let variant_name = &variant.ident;
 
         quote! {

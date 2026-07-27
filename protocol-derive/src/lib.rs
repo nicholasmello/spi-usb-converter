@@ -14,7 +14,7 @@ pub fn derive_deserialize(input: TokenStream) -> TokenStream {
     derive_deserialize::derive_deserialize(input)
 }
 
-#[proc_macro_derive(SerializeTest)]
+#[proc_macro_derive(SerializeTest, attributes(skip_test))]
 pub fn derive_test(input: TokenStream) -> TokenStream {
     derive_test::derive_test(input)
 }
