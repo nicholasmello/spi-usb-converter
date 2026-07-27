@@ -3,6 +3,8 @@
 extern crate alloc;
 
 mod definitions;
+mod serialize;
 
-// Re-export everything
+// Re-export everything from all files
 pub use definitions::*;
+pub use serialize::*;

@@ -25,8 +25,18 @@ dependencies = [
 name = "protocol"
 version = "0.1.0"
 dependencies = [
+ "protocol-derive",
  "serialmessage",
  "thiserror",
+]
+
+[[package]]
+name = "protocol-derive"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
 ]
 
 [[package]]
@@ -49,6 +59,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "11b88251ad71ba18e503618aed78ac07d1ff2e1f22ab85c769ce0cc3ce06fe20"
 dependencies = [
  "cfg-if",
+]
+
+[[package]]
+name = "syn"
+version = "2.0.119"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-ident",
 ]
 
 [[package]]
@@ -79,7 +100,7 @@ checksum = "43cbfe0cf76104d42a574802844187e84a305e531ed54455f11fbde0f10541cd"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn",
+ "syn 3.0.3",
 ]
 
 [[package]]

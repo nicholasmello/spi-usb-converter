@@ -1,8 +1,10 @@
+use crate::{Deserialize, Serialize, SerializeTest};
 use alloc::vec::Vec;
 
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Default, Serialize, Deserialize, SerializeTest)]
 pub enum SpiMode {
     /// CPOL = 0 / CPHA = 0
+    #[default]
     Mode0,
 
     /// CPOL = 0 / CPHA = 1

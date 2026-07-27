@@ -6,3 +6,4 @@ edition = "2024"
 [dependencies]
 serialmessage.workspace = true
 thiserror.workspace = true
+protocol-derive = { path = "../protocol-derive/" }

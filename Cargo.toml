@@ -1,5 +1,5 @@
 [workspace]
-members = ["protocol", "send-spi", "converter"]
+members = ["protocol", "send-spi", "converter", "protocol-derive"]
 resolver = "2"
 
 [workspace.dependencies]
