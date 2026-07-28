@@ -4,12 +4,12 @@ mod spimode;
 mod txpacket;
 
 use crate::{Deserialize, Serialize};
-use acktype::AckType;
+pub use acktype::AckType;
 use alloc::vec;
 use alloc::vec::Vec;
-use error::ProtocolError;
-use spimode::SpiMode;
-use txpacket::TransferPacket;
+pub use error::ProtocolError;
+pub use spimode::SpiMode;
+pub use txpacket::TransferPacket;
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum Message {

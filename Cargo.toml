@@ -5,3 +5,4 @@ resolver = "2"
 [workspace.dependencies]
 serialmessage = "0.2.0"
 thiserror = { version = "2.0.19", default-features = false }
+protocol = { path = "./protocol" }
